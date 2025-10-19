@@ -1,7 +1,9 @@
 package br.com.andrew.anime.anime.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,19 +32,21 @@ public class Anime {
     OneToMany = um anime pode ser o favorito de muitos usuarios
     mappedBy = "favoriteAnime" indica que o relacionamento é mapeado pelo atributo favorite
      */
-    @OneToMany(mappedBy = "favoriteAnime")
+
+    @OneToMany(mappedBy = "favoriteAnime", fetch = FetchType.LAZY)
+    @JsonIgnore //Não inclua esse campo no JSON, evitando loop
     private Set<User> user = new HashSet<>();
 
     @Transient
     private Set<Character> character = new HashSet<>();
 
-    public Anime(Long id, String title, String genre, String synopsis,Set<User> user, Set<Character> character) {
+    public Anime(){}
+
+    public Anime(Long id, String title, String genre, String synopsis) {
         this.id = id;
         this.title = title;
         this.genre = genre;
         this.synopsis = synopsis;
-        this.user = user;
-        this.character = character;
     }
 
     public Long getId() {
