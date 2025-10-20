@@ -1,0 +1,16 @@
+br/com/andrew/anime/anime/entities/User.class
+br/com/andrew/anime/anime/entities/enums/Gender.class
+br/com/andrew/anime/anime/services/AnimeService.class
+br/com/andrew/anime/anime/entities/Character.class
+br/com/andrew/anime/anime/entities/Anime.class
+br/com/andrew/anime/anime/resources/UserResource.class
+br/com/andrew/anime/anime/services/UserService.class
+br/com/andrew/anime/anime/AnimeApplication.class
+br/com/andrew/anime/anime/config/TestConfig.class
+br/com/andrew/anime/anime/resources/CharacterResource.class
+br/com/andrew/anime/anime/repository/UserRepository.class
+br/com/andrew/anime/anime/repository/CharacterRepository.class
+br/com/andrew/anime/anime/entities/enums/Genre.class
+br/com/andrew/anime/anime/services/CharacterService.class
+br/com/andrew/anime/anime/repository/AnimeRepository.class
+br/com/andrew/anime/anime/resources/AnimeResource.class

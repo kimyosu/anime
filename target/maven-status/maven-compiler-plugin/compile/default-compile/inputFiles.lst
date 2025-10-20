@@ -1,0 +1,16 @@
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/AnimeApplication.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/config/TestConfig.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/entities/Anime.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/entities/Character.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/entities/User.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/entities/enums/Gender.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/entities/enums/Genre.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/repository/AnimeRepository.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/repository/CharacterRepository.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/repository/UserRepository.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/resources/AnimeResource.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/resources/CharacterResource.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/resources/UserResource.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/services/AnimeService.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/services/CharacterService.java
+/home/andrew/Dev/anime/src/main/java/br/com/andrew/anime/anime/services/UserService.java

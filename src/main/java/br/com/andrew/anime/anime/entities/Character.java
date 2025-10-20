@@ -2,28 +2,40 @@ package br.com.andrew.anime.anime.entities;
 
 
 import br.com.andrew.anime.anime.entities.enums.Gender;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
+@Entity
+@Table(name = "tb_character")
 public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private LocalDateTime birthDate;
+    private Instant birthDate;
     private Integer gender;
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "characters")
+    private Set<Anime> anime = new HashSet<>();
 
     public Character(){}
 
-    public Character(Long id, String name, LocalDateTime birthDate, Gender gender) {
+    public Character(Long id, String name, Instant birthDate, Gender gender) {
         this.id = id;
         this.name = name;
         this.birthDate = birthDate;
-         setGender(gender);
+        setGender(gender);
     }
 
 
@@ -43,11 +55,11 @@ public class Character {
         this.name = name;
     }
 
-    public LocalDateTime getBirthDate() {
+    public Instant getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDateTime birthDate) {
+    public void setBirthDate(Instant birthDate) {
         this.birthDate = birthDate;
     }
 

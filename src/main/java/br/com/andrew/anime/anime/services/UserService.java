@@ -2,6 +2,7 @@ package br.com.andrew.anime.anime.services;
 
 import br.com.andrew.anime.anime.entities.User;
 import br.com.andrew.anime.anime.repository.UserRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +22,9 @@ public class UserService {
 
     public List<User> findAll(){ //Busca todos os Users do banco de dados
         return userRepository.findAll();
+    }
+
+    public User insert(User user){ //Insere um novo User no banco de dados
+        return userRepository.save(user);
     }
 }

@@ -24,4 +24,8 @@ public class AnimeService {
     public List<Anime> findAll(){
         return animeRepository.findAll();
     }
+
+    public Anime insert(Anime anime){
+        return animeRepository.save(anime);
+    }
 }

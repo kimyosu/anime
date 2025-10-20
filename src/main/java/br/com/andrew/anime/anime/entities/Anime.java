@@ -1,5 +1,6 @@
 package br.com.andrew.anime.anime.entities;
 
+import br.com.andrew.anime.anime.entities.enums.Genre;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,10 +8,13 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -22,10 +26,13 @@ public class Anime {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false) //Indica que o titulo é unico e nao pode ser nulo
     private String title;
 
-    private String genre;
+    private Instant releaseDate;
+
+    private Genre genres;
+
     private String synopsis;
 
     /*
@@ -33,20 +40,26 @@ public class Anime {
     mappedBy = "favoriteAnime" indica que o relacionamento é mapeado pelo atributo favorite
      */
 
-    @OneToMany(mappedBy = "favoriteAnime", fetch = FetchType.LAZY)
-    @JsonIgnore //Não inclua esse campo no JSON, evitando loop
+    @JsonIgnore
+    @OneToMany(mappedBy = "favoriteAnime")
     private Set<User> user = new HashSet<>();
 
-    @Transient
-    private Set<Character> character = new HashSet<>();
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "tb_anime_character",
+            joinColumns = @JoinColumn(name = "anime_id"),
+            inverseJoinColumns = @JoinColumn(name = "character_id"))
+    private Set<Character> characters = new HashSet<>();
 
-    public Anime(){}
+    public Anime() {
+    }
 
-    public Anime(Long id, String title, String genre, String synopsis) {
+    public Anime(Long id, String title, Genre genres, Instant releaseDate, String synopsis) {
         this.id = id;
         this.title = title;
-        this.genre = genre;
+        this.genres = genres;
         this.synopsis = synopsis;
+        this.releaseDate = releaseDate;
     }
 
     public Long getId() {
@@ -65,12 +78,8 @@ public class Anime {
         this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public Genre getGenres() {
+        return genres;
     }
 
     public String getSynopsis() {
@@ -81,13 +90,20 @@ public class Anime {
         this.synopsis = synopsis;
     }
 
-    public Set<Character> getCharacter() {
-        return character;
+
+    public Instant getReleaseDate() {
+        return releaseDate;
     }
 
     public Set<User> getUser() {
         return user;
     }
+
+    public Set<Character> getCharacters() {
+        return characters;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {

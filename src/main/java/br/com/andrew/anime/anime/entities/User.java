@@ -1,8 +1,10 @@
 package br.com.andrew.anime.anime.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,7 +23,6 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment
     private Long id;
     private String name;
-    @Column(unique = true, nullable = false) //userName tem que ser unico e nao nulo
     private String userName;
 
     @ManyToOne // Muitos usuarios podem ter o mesmo anime favorito
