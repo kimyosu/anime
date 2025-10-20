@@ -1,6 +1,5 @@
 package br.com.andrew.anime.anime.resources;
 
-import br.com.andrew.anime.anime.entities.Anime;
 import br.com.andrew.anime.anime.entities.User;
 import br.com.andrew.anime.anime.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

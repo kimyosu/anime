@@ -1,15 +1,12 @@
 package br.com.andrew.anime.anime.resources;
 
 import br.com.andrew.anime.anime.entities.Anime;
-import br.com.andrew.anime.anime.entities.User;
 import br.com.andrew.anime.anime.services.AnimeService;
-import br.com.andrew.anime.anime.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;

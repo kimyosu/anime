@@ -2,7 +2,6 @@ package br.com.andrew.anime.anime.services;
 
 import br.com.andrew.anime.anime.entities.User;
 import br.com.andrew.anime.anime.repository.UserRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
